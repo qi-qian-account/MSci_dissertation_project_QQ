@@ -1,0 +1,281 @@
+#---------
+# REDUCED STATISTICS
+#---------
+
+# my reduced statistics
+ReducedStatistics:
+  /Users/ilg/Desktop/year4/M4R/python_files/Plaid_metrics/Plaid_metrics.py:
+    PlaidAllMetrics:
+      schemes:
+        assumed_k2:
+          num_biclusters: 2
+
+        assumed_k3:
+          num_biclusters: 3
+
+        assumed_k5:
+          num_biclusters: 5
+
+  /Users/ilg/Desktop/year4/M4R/python_files/FABIA_metrics/FABIA_metrics.py:
+    FABIAAllMetrics:
+      schemes:
+        assumed_k2:
+          num_biclusters: 2
+
+        assumed_k3:
+          num_biclusters: 3
+
+        assumed_k5:
+          num_biclusters: 5
+
+
+# hetvi's
+  /Users/ilg/Desktop/year4/M4R/python_files/summary_stats/distance_distrib_stats.py:
+    DistanceDistributionBasicSummarize:
+      schemes:
+        cosine_distrib_meancentroid:
+          metric: cosine
+          stats: 
+            - std
+            - mean
+            - iqr
+          point: global_mean_centroid
+        euclidean_distrib_meancentroid:
+          metric: euclidean
+          stats: 
+            - std
+            - mean
+            - iqr
+          point: global_mean_centroid
+        canberra_distrib_meancentroid:
+          metric: canberra
+          stats: 
+            - std
+            - mean
+            - iqr
+          point: global_mean_centroid
+        cosine_skew_meancentroid:
+          metric: cosine
+          stats: 
+            - skew
+          point: global_mean_centroid
+        euclidean_skew_meancentroid:
+          metric: euclidean
+          stats: 
+            - skew
+          point: global_mean_centroid
+        canberra_kurt_meancentroid:
+          metric: canberra
+          stats: 
+            - kurtosis
+          point: global_mean_centroid
+        cosine_kurt_meancentroid:
+          metric: cosine
+          stats: 
+            - kurtosis
+          point: global_mean_centroid
+        euclidean_kurt_meancentroid:
+          metric: euclidean
+          stats: 
+            - kurtosis
+          point: global_mean_centroid
+        cosine_distrib_pairwise:
+          metric: cosine
+          stats: 
+            - std
+            - mean
+            - iqr
+          point: all
+        euclidean_distrib_pairwise:
+          metric: euclidean
+          stats: 
+            - std
+            - mean
+            - iqr
+          point: all
+        canberra_distrib_pairwise:
+          metric: canberra
+          stats: 
+            - std
+            - mean
+            - iqr
+          point: all
+        cosine_skew_pairwise:
+          metric: cosine
+          stats: 
+            - skew
+          point: all
+        euclidean_skew_pairwise:
+          metric: euclidean
+          stats: 
+            - skew
+          point: all
+        canberra_kurt_pairwise:
+          metric: canberra
+          stats: 
+            - kurtosis
+          point: all
+        cosine_kurt_pairwise:
+          metric: cosine
+          stats: 
+             - kurtosis
+          point: all
+        euclidean_kurt_pairwise:
+          metric: euclidean
+          stats: 
+            - kurtosis
+          point: all
+
+
+    DistanceDistributionModesSummarize:
+      schemes:
+        corr_peaks_meancentroid:
+          metric: correlation
+          point: global_mean_centroid
+          type: kde
+        euclidean_peaks_meancentroid:
+          metric: euclidean
+          point: global_mean_centroid
+          type: kde
+        canberra_peaks_meancentroid:
+          metric: canberra
+          point: global_mean_centroid
+          type: kde
+        corr_peaks_pairwise:
+          metric: correlation
+          point: all
+          type: kde
+        euclidean_peaks_pairwise:
+          metric: euclidean
+          point: all
+          type: kde
+        canberra_peaks_pairwise:
+          metric: canberra
+          point: all
+          type: kde
+    
+  /Users/ilg/Desktop/year4/M4R/python_files/summary_stats/mean_median_differences.py:
+    GlobalMeanMedianDiff:
+          schemes:
+            global_mean_median_diff:
+
+
+
+# pyspoc's rstats
+  pyspoc.rstatistics.pca:
+    PCAEigenVectors:
+      schemes:
+        pca_eigenvectors_top_1_2_3:
+          principal_vectors: [1, 2, 3]
+
+    PCAVarianceExplainedRatio:
+      schemes:
+        pca_variance_ratio_top_1_2_3:
+          components: [1, 2, 3]
+
+
+
+# ------------------------------------------------------------
+# STATS
+# ------------------------------------------------------------
+
+Statistics:
+  pyspoc.statistics.basic:
+    Covariance:
+      schemes:
+        feature_covariance_matrix:
+
+    Precision:
+      schemes:
+        feature_precision_matrix:
+
+    KendallTau:
+      schemes:
+        feature_kendall_tau_signed:
+          squared: false
+
+    SpearmanR:
+      schemes:
+        feature_spearman_r_signed:
+          squared: false
+
+
+# ------------------------------------------------------------
+# REDUCERS
+# ------------------------------------------------------------
+
+Reducers:
+  pyspoc.reducers.basic:
+    Determinant:
+      schemes:
+        scaled_matrix_determinant:
+          scaled: true
+
+    Diag:
+      schemes:
+        matrix_diagonal_entries:
+
+    EigenValues:
+      schemes:
+        matrix_eigenvalues_all:
+
+    Moment:
+      schemes:
+        columnwise_moments_2_4:
+          moments: [2, 4]
+
+    MatrixMomentSummary:
+      schemes:
+        offdiagonal_matrix_moments_2_4:
+          moments: [2, 4]
+          exclude_diagonal: true
+
+    SingularValues:
+      schemes:
+        matrix_singular_values_all:
+
+    Trace:
+      schemes:
+        matrix_trace:
+
+  pyspoc.reducers.norms:
+    EntryWiseMatrixNorm:
+      schemes:
+        entrywise_frobenius_norm:
+          p: 2
+          q: 2
+
+    Norm:
+      schemes:
+        spectral_norm:
+          order: 2
+
+    SchattenNorm:
+      schemes:
+        schatten_frobenius_norm:
+          p: 2
+
+
+  /Users/ilg/Desktop/year4/M4R/python_files/summary_stats/feature_covariance_stats.py:
+    
+    MaxCovPerFeature:
+      filters:
+        - pyspoc.statistics.basic.Covariance.*
+      schemes:
+        maxcov_per_feature_min_med_max:
+          stats:
+            - min
+            - median
+            - max
+            
+    EigenAMGMRatio:
+      filters:
+        - pyspoc.statistics.basic.Covariance.*
+      schemes:
+        cov_eigen_amgm_ratio:
+
+    EigenEntropy:
+      filters:
+        - pyspoc.statistics.basic.Covariance.*
+      schemes:
+        cov_eigen_entropy:
